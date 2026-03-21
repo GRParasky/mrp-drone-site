@@ -20,7 +20,7 @@ export default function ScrollDrone() {
   return (
     <div ref={droneRef} className={styles.drone} aria-hidden="true">
       <img
-        src="/drone-icon.png"
+        src={`${import.meta.env.BASE_URL}drone-icon.png`}
         alt=""
         className={styles.droneImg}
       />

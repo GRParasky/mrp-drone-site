@@ -13,7 +13,7 @@ export default function Portfolio() {
         </div>
 
         <div className={styles.construction}>
-          <img src="/drone-icon.png" alt="" aria-hidden="true" className={styles.constructionDroneIcon} />
+          <img src={`${import.meta.env.BASE_URL}drone-icon.png`} alt="" aria-hidden="true" className={styles.constructionDroneIcon} />
           <div className={styles.constructionIcon} aria-hidden="true">
             <i className="fa-solid fa-screwdriver-wrench"></i>
           </div>

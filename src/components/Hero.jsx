@@ -34,7 +34,7 @@ export default function Hero() {
       {/* Vídeo de fundo */}
       <video
         className={styles.videoBg}
-        src="/hero-bg.mp4"
+        src={`${import.meta.env.BASE_URL}hero-bg.mp4`}
         autoPlay
         muted
         loop
