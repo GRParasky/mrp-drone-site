@@ -1,0 +1,168 @@
+.social {
+  background: var(--color-bg);
+  position: relative;
+}
+
+.social::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+}
+
+/* ===== Grid ===== */
+.socialGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md);
+}
+
+/* ===== Card ===== */
+.socialCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  background: var(--color-bg-card);
+  border: 1px solid var(--card-border, var(--color-border));
+  border-radius: var(--border-radius-xl);
+  padding: var(--spacing-lg);
+  text-decoration: none;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base), background var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.socialCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--card-color, var(--color-accent));
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.socialCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  background: var(--color-bg-card-hover);
+  border-color: var(--card-color, var(--color-accent));
+}
+
+.socialCard:hover::before {
+  opacity: 1;
+}
+
+/* ===== Card Top ===== */
+.cardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.iconWrapper {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-md);
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.externalIcon {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-top: 0.25rem;
+  transition: color var(--transition-fast);
+}
+
+.socialCard:hover .externalIcon {
+  color: var(--card-color, var(--color-accent));
+}
+
+/* ===== Platform Info ===== */
+.platformInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.platform {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.handle {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  font-family: 'Courier New', monospace;
+}
+
+/* ===== Description ===== */
+.cardDescription {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  flex: 1;
+}
+
+/* ===== Stats ===== */
+.cardStats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--color-border);
+}
+
+.statsText {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.followCta {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast), gap var(--transition-fast);
+}
+
+.socialCard:hover .followCta {
+  color: var(--color-text-primary);
+  gap: 0.6rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .socialGrid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 900px) {
+  .socialGrid {
+    grid-template-columns: 1fr 1fr;
+    max-width: none;
+  }
+
+  .socialGrid > :last-child {
+    grid-column: 1 / -1;
+    max-width: 360px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
