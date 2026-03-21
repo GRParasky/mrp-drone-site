@@ -14,16 +14,16 @@ const FOOTER_LINKS = {
     { label: 'Contato', href: '#contact' },
   ],
   Social: [
-    { label: 'YouTube', href: 'https://youtube.com/@mrpdrone', external: true },
-    { label: 'Instagram', href: 'https://instagram.com/mrpdrone', external: true },
-    { label: 'TikTok', href: 'https://tiktok.com/@mrpdrone', external: true },
+    { label: 'YouTube', href: 'https://youtube.com/@Mrp-drone', external: true },
+    { label: 'Instagram', href: 'https://instagram.com/mrp_drone', external: true },
+    { label: 'TikTok', href: 'https://tiktok.com/@mrpdrone0', external: true },
   ],
 }
 
 const SOCIAL_ICONS = [
-  { href: 'https://youtube.com/@mrpdrone', icon: 'fa-brands fa-youtube', label: 'YouTube' },
-  { href: 'https://instagram.com/mrpdrone', icon: 'fa-brands fa-instagram', label: 'Instagram' },
-  { href: 'https://tiktok.com/@mrpdrone', icon: 'fa-brands fa-tiktok', label: 'TikTok' },
+  { href: 'https://youtube.com/@Mrp-drone', icon: 'fa-brands fa-youtube', label: 'YouTube' },
+  { href: 'https://instagram.com/mrp_drone', icon: 'fa-brands fa-instagram', label: 'Instagram' },
+  { href: 'https://tiktok.com/@mrpdrone0', icon: 'fa-brands fa-tiktok', label: 'TikTok' },
 ]
 
 export default function Footer() {

@@ -31,7 +31,7 @@ const PLATFORMS = [
     label: 'YouTube',
     icon: 'fa-brands fa-youtube',
     color: '#FF0000',
-    href: 'https://youtube.com/@mrpdrone',
+    href: 'https://youtube.com/@Mrp-drone',
   },
   // TODO: descomentar quando a Instagram Graph API estiver configurada
   // {
@@ -73,7 +73,7 @@ function YouTubeError() {
   return (
     <div className={styles.feedError} role="alert">
       <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
-      <p>Não foi possível carregar os vídeos. <a href="https://youtube.com/@mrpdrone" target="_blank" rel="noopener noreferrer">Ver canal no YouTube</a></p>
+      <p>Não foi possível carregar os vídeos. <a href="https://youtube.com/@Mrp-drone" target="_blank" rel="noopener noreferrer">Ver canal no YouTube</a></p>
     </div>
   )
 }

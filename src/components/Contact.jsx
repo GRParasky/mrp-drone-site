@@ -173,7 +173,7 @@ export default function Contact() {
 
             <div className={styles.socialLinks} aria-label="Links das redes sociais">
               <a
-                href="https://youtube.com/@mrpdrone"
+                href="https://youtube.com/@Mrp-drone"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
@@ -182,7 +182,7 @@ export default function Contact() {
                 <i className="fa-brands fa-youtube" aria-hidden="true"></i>
               </a>
               <a
-                href="https://instagram.com/mrpdrone"
+                href="https://instagram.com/mrp_drone"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -191,7 +191,7 @@ export default function Contact() {
                 <i className="fa-brands fa-instagram" aria-hidden="true"></i>
               </a>
               <a
-                href="https://tiktok.com/@mrpdrone"
+                href="https://tiktok.com/@mrpdrone0"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="TikTok"
