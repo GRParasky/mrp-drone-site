@@ -33,7 +33,7 @@ jobs:
         run: npm run build
         env:
           VITE_YOUTUBE_API_KEY: ${{ secrets.VITE_YOUTUBE_API_KEY }}
-          VITE_YOUTUBE_CHANNEL_HANDLE: mrpdrone
+          VITE_YOUTUBE_CHANNEL_HANDLE: mrp-drone
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
