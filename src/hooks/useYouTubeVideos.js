@@ -48,10 +48,13 @@ function setCache(data) {
   }
 }
 
+const FETCH_OPTIONS = { referrerPolicy: 'origin' }
+
 async function fetchYouTubeVideos() {
   // 1. Buscar uploads playlist ID do canal (1 quota unit)
   const channelRes = await fetch(
-    `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forHandle=${CHANNEL_HANDLE}&key=${API_KEY}`
+    `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forHandle=${CHANNEL_HANDLE}&key=${API_KEY}`,
+    FETCH_OPTIONS
   )
   if (!channelRes.ok) throw new Error('Erro ao buscar canal')
   const channelData = await channelRes.json()
@@ -62,7 +65,8 @@ async function fetchYouTubeVideos() {
 
   // 2. Buscar últimos 6 vídeos da playlist (1 quota unit)
   const playlistRes = await fetch(
-    `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=6&key=${API_KEY}`
+    `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=6&key=${API_KEY}`,
+    FETCH_OPTIONS
   )
   if (!playlistRes.ok) throw new Error('Erro ao buscar vídeos')
   const playlistData = await playlistRes.json()
@@ -72,7 +76,8 @@ async function fetchYouTubeVideos() {
 
   // 3. Buscar views de cada vídeo (1 quota unit)
   const statsRes = await fetch(
-    `https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${videoIds}&key=${API_KEY}`
+    `https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${videoIds}&key=${API_KEY}`,
+    FETCH_OPTIONS
   )
   const statsData = statsRes.ok ? await statsRes.json() : { items: [] }
 
