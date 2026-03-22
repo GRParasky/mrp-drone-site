@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
+import { CLIENT } from '../config/client'
 
 const API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY
-const CHANNEL_HANDLE = import.meta.env.VITE_YOUTUBE_CHANNEL_HANDLE
+const CHANNEL_HANDLE = CLIENT.social.youtube.handle.replace('@', '')
 const CACHE_KEY = 'mrp_yt_cache'
 const CACHE_TTL_MS = 1000 * 60 * 30 // 30 minutos
 

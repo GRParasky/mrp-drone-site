@@ -1,9 +1,10 @@
 import styles from './WhatsAppButton.module.css'
+import { CLIENT } from '../../config/client'
 
 export default function WhatsAppButton() {
   return (
     <a
-      href="https://wa.me/554791531804"
+      href={`https://wa.me/${CLIENT.whatsapp}`}
       target="_blank"
       rel="noopener noreferrer"
       className={styles.button}

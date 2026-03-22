@@ -1,12 +1,12 @@
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import About from './components/About'
-import Portfolio from './components/Portfolio'
-import Contact from './components/Contact'
-import SocialFeed from './components/SocialFeed'
-import Footer from './components/Footer'
-import ScrollDrone from './components/ScrollDrone'
-import WhatsAppButton from './components/WhatsAppButton'
+import Navbar from './components/layout/Navbar/Navbar'
+import Hero from './components/sections/Hero/Hero'
+import About from './components/sections/About/About'
+import Portfolio from './components/sections/Portfolio/Portfolio'
+import Contact from './components/sections/Contact/Contact'
+import SocialFeed from './components/sections/SocialFeed/SocialFeed'
+import Footer from './components/layout/Footer/Footer'
+import ScrollDrone from './components/ui/ScrollDrone'
+import WhatsAppButton from './components/ui/WhatsAppButton'
 
 function App() {
   return (

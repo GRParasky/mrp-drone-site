@@ -1,13 +1,10 @@
 import { useState, useCallback } from 'react'
 import styles from './Contact.module.css'
+import { CLIENT } from '../../../config/client'
 
 const SERVICE_TYPES = [
   { value: '', label: 'Selecione um serviço...' },
-  { value: 'event', label: 'Cobertura de Evento' },
-  { value: 'real-estate', label: 'Imóveis' },
-  { value: 'commercial', label: 'Produção Comercial' },
-  { value: 'landscape', label: 'Paisagem / Viagem' },
-  { value: 'other', label: 'Outro' },
+  ...CLIENT.services,
 ]
 
 const INITIAL_FORM = {
@@ -22,19 +19,19 @@ const CONTACT_INFO = [
   {
     icon: 'fa-solid fa-envelope',
     label: 'E-mail',
-    value: 'marcielrodrigoparasky@gmail.com',
-    href: 'mailto:marcielrodrigoparasky@gmail.com',
+    value: CLIENT.email,
+    href: `mailto:${CLIENT.email}`,
   },
   {
     icon: 'fa-brands fa-whatsapp',
     label: 'WhatsApp',
-    value: '+55 47 9 9153-1804',
-    href: 'https://wa.me/5547991531804',
+    value: CLIENT.whatsappLabel,
+    href: `https://wa.me/${CLIENT.whatsapp}`,
   },
   {
     icon: 'fa-solid fa-location-dot',
     label: 'Localização',
-    value: 'Penha, SC — Gravações no Litoral Catarinense',
+    value: `${CLIENT.location} — Gravações no ${CLIENT.areaServed}`,
     href: null,
   },
   {
@@ -187,31 +184,13 @@ export default function Contact() {
             </ul>
 
             <div className={styles.socialLinks} aria-label="Links das redes sociais">
-              <a
-                href="https://youtube.com/@Mrp-drone"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="YouTube"
-                className={styles.socialLink}
-              >
+              <a href={CLIENT.social.youtube.url} target="_blank" rel="noopener noreferrer" aria-label="YouTube" className={styles.socialLink}>
                 <i className="fa-brands fa-youtube" aria-hidden="true"></i>
               </a>
-              <a
-                href="https://instagram.com/mrp_drone"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className={styles.socialLink}
-              >
+              <a href={CLIENT.social.instagram.url} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className={styles.socialLink}>
                 <i className="fa-brands fa-instagram" aria-hidden="true"></i>
               </a>
-              <a
-                href="https://tiktok.com/@mrpdrone0"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="TikTok"
-                className={styles.socialLink}
-              >
+              <a href={CLIENT.social.tiktok.url} target="_blank" rel="noopener noreferrer" aria-label="TikTok" className={styles.socialLink}>
                 <i className="fa-brands fa-tiktok" aria-hidden="true"></i>
               </a>
             </div>

@@ -3,7 +3,8 @@
 
 import { useState, useCallback, useEffect } from 'react'
 import styles from './SocialFeed.module.css'
-import { useYouTubeVideos } from '../hooks/useYouTubeVideos'
+import { useYouTubeVideos } from '../../../hooks/useYouTubeVideos'
+import { CLIENT } from '../../../config/client'
 
 // ─── Instagram (aguardando API) ───────────────────────────────────────────────
 // TODO: substituir INSTAGRAM_MOCK pelo hook useInstagramFeed quando a API estiver configurada
@@ -31,7 +32,7 @@ const PLATFORMS = [
     label: 'YouTube',
     icon: 'fa-brands fa-youtube',
     color: '#FF0000',
-    href: 'https://youtube.com/@Mrp-drone',
+    href: CLIENT.social.youtube.url,
   },
   // TODO: descomentar quando a Instagram Graph API estiver configurada
   // {
@@ -40,14 +41,14 @@ const PLATFORMS = [
   //   icon: 'fa-brands fa-instagram',
   //   color: '#E1306C',
   //   gradient: 'linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4)',
-  //   href: 'https://instagram.com/mrpdrone',
+  //   href: CLIENT.social.instagram.url,
   // },
   {
     id: 'tiktok',
     label: 'TikTok',
     icon: 'fa-brands fa-tiktok',
     color: '#69C9D0',
-    href: 'https://tiktok.com/@mrpdrone0',
+    href: CLIENT.social.tiktok.url,
   },
 ]
 
@@ -73,7 +74,7 @@ function YouTubeError() {
   return (
     <div className={styles.feedError} role="alert">
       <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
-      <p>Não foi possível carregar os vídeos. <a href="https://youtube.com/@Mrp-drone" target="_blank" rel="noopener noreferrer">Ver canal no YouTube</a></p>
+      <p>Não foi possível carregar os vídeos. <a href={CLIENT.social.youtube.url} target="_blank" rel="noopener noreferrer">Ver canal no YouTube</a></p>
     </div>
   )
 }
