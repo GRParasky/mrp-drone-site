@@ -108,9 +108,24 @@ export default function Contact() {
 
     setSubmitState('submitting')
 
-    // Envio simulado (substituir por chamada real à API)
     try {
-      await new Promise((res) => setTimeout(res, 1500))
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_KEY,
+          subject: `Orçamento MRP Drone — ${formData.service}`,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || 'Não informado',
+          service: formData.service,
+          message: formData.message,
+        }),
+      })
+
+      const data = await res.json()
+      if (!data.success) throw new Error(data.message)
+
       setSubmitState('success')
       setFormData(INITIAL_FORM)
       setTouched({})
