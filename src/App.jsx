@@ -6,6 +6,7 @@ import Contact from './components/Contact'
 import SocialFeed from './components/SocialFeed'
 import Footer from './components/Footer'
 import ScrollDrone from './components/ScrollDrone'
+import WhatsAppButton from './components/WhatsAppButton'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <SocialFeed />
       </main>
       <Footer />
+      <WhatsAppButton />
     </>
   )
 }
