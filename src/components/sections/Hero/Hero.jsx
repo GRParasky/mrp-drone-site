@@ -3,12 +3,17 @@ import styles from './Hero.module.css'
 
 export default function Hero() {
   const parallaxRef = useRef(null)
+  const ticking = useRef(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!parallaxRef.current) return
-      const scrollY = window.scrollY
-      parallaxRef.current.style.transform = `translateY(${scrollY * 0.4}px)`
+      if (!parallaxRef.current || ticking.current) return
+      ticking.current = true
+
+      requestAnimationFrame(() => {
+        parallaxRef.current.style.transform = `translateY(${window.scrollY * 0.4}px)`
+        ticking.current = false
+      })
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })

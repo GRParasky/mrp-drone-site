@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import styles from './Navbar.module.css'
 
 const NAV_LINKS = [
@@ -13,20 +13,27 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('')
 
+  const ticking = useRef(false)
+  const sections = useRef(NAV_LINKS.map((link) => link.href.slice(1)))
+
   const handleScroll = useCallback(() => {
-    setIsScrolled(window.scrollY > 20)
+    if (ticking.current) return
+    ticking.current = true
 
-    // Destaca a seção ativa baseada na posição do scroll
-    const sections = NAV_LINKS.map((link) => link.href.slice(1))
-    const scrollPos = window.scrollY + 100
+    requestAnimationFrame(() => {
+      setIsScrolled(window.scrollY > 20)
 
-    for (let i = sections.length - 1; i >= 0; i--) {
-      const el = document.getElementById(sections[i])
-      if (el && el.offsetTop <= scrollPos) {
-        setActiveSection(sections[i])
-        break
+      const scrollPos = window.scrollY + 100
+      for (let i = sections.current.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sections.current[i])
+        if (el && el.offsetTop <= scrollPos) {
+          setActiveSection(sections.current[i])
+          break
+        }
       }
-    }
+
+      ticking.current = false
+    })
   }, [])
 
   useEffect(() => {
