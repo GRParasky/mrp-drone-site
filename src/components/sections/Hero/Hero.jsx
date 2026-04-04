@@ -35,6 +35,7 @@ export default function Hero() {
       <video
         className={styles.videoBg}
         src={`${import.meta.env.BASE_URL}videos/hero-bg.mp4`}
+        poster={`${import.meta.env.BASE_URL}images/hero-bg-cover.png`}
         autoPlay
         muted
         loop
