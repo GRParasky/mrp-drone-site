@@ -47,7 +47,7 @@ export default function Footer() {
         <div className={styles.footerTop}>
           {/* Marca */}
           <div className={styles.brand}>
-            <Logo className={styles.logo} imgClassName={styles.logoImg} />
+            <Logo className={styles.logo} imgClassName={styles.logoImg} lazy />
             <p className={styles.brandTagline}>
               Cinematografia aérea que eleva a sua história. Videografia profissional
               com drone para eventos, imóveis e projetos comerciais.
