@@ -1,9 +1,10 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useMemo } from 'react'
 import styles from './Hero.module.css'
 
 export default function Hero() {
   const parallaxRef = useRef(null)
   const ticking = useRef(false)
+  const particles = useMemo(() => Array.from({ length: 20 }, (_, i) => i), [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,7 +54,7 @@ export default function Hero() {
 
       {/* Partículas animadas */}
       <div className={styles.particles} aria-hidden="true">
-        {Array.from({ length: 20 }).map((_, i) => (
+        {particles.map((i) => (
           <span key={i} className={styles.particle} style={{ '--i': i }}></span>
         ))}
       </div>
