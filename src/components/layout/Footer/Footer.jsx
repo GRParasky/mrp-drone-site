@@ -1,5 +1,6 @@
 import styles from './Footer.module.css'
 import { CLIENT } from '../../../config/client'
+import { useScrollToSection } from '../../../hooks/useScrollToSection'
 
 const FOOTER_LINKS = {
   Serviços: [
@@ -29,12 +30,11 @@ const SOCIAL_ICONS = [
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
+  const scrollTo = useScrollToSection()
 
   const handleNavClick = (e, href) => {
-    if (href.startsWith('#')) {
-      e.preventDefault()
-      document.getElementById(href.slice(1))?.scrollIntoView({ behavior: 'smooth' })
-    }
+    e.preventDefault()
+    scrollTo(href)
   }
 
   return (

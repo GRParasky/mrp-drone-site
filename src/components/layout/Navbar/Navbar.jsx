@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import styles from './Navbar.module.css'
+import { useScrollToSection } from '../../../hooks/useScrollToSection'
 
 const NAV_LINKS = [
   { href: '#about', label: 'Sobre' },
@@ -41,16 +42,14 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [handleScroll])
 
+  const scrollTo = useScrollToSection()
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev)
+
   const handleNavClick = (e, href) => {
     e.preventDefault()
-    const target = document.querySelector(href)
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' })
-    }
+    scrollTo(href)
     setIsMenuOpen(false)
   }
-
-  const toggleMenu = () => setIsMenuOpen((prev) => !prev)
 
   return (
     <header

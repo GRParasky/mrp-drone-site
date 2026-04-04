@@ -1,4 +1,5 @@
 import styles from './About.module.css'
+import { useScrollToSection } from '../../../hooks/useScrollToSection'
 
 const SERVICES = [
   {
@@ -26,6 +27,8 @@ const SERVICES = [
 ]
 
 export default function About() {
+  const scrollTo = useScrollToSection()
+
   return (
     <section
       id="about"
@@ -83,10 +86,7 @@ export default function About() {
             <a
               href="#contact"
               className={styles.ctaLink}
-              onClick={(e) => {
-                e.preventDefault()
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-              }}
+              onClick={(e) => { e.preventDefault(); scrollTo('contact') }}
             >
               Trabalhe Conosco
               <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
