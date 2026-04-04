@@ -237,3 +237,24 @@
     display: block;
   }
 }
+
+@media (max-width: 360px) {
+  .logoText {
+    font-size: 1.1rem;
+  }
+
+  .logoImg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .mobileNavLink {
+    font-size: 0.925rem;
+    padding: 0.625rem var(--spacing-sm);
+  }
+
+  .mobileCta {
+    font-size: 0.925rem;
+    padding: 0.75rem var(--spacing-sm);
+  }
+}

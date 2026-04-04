@@ -200,3 +200,17 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 360px) {
+  .serviceCard {
+    padding: var(--spacing-sm);
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .highlights {
+    gap: 0.5rem;
+  }
+}
