@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://grparasky.github.io/mrp-drone-site/sitemap.xml
