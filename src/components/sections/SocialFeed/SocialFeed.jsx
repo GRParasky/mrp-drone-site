@@ -1,22 +1,8 @@
-// TODO: Instagram: Instagram Graph API - GET /{user-id}/media
-// TikTok: TikTok Display API (pending approval)
-
 import { useState, useCallback, useEffect } from 'react'
 import styles from './SocialFeed.module.css'
 import { useYouTubeVideos } from '../../../hooks/useYouTubeVideos'
+import { useInstagramFeed } from '../../../hooks/useInstagramFeed'
 import { CLIENT } from '../../../config/client'
-
-// ─── Instagram (aguardando API) ───────────────────────────────────────────────
-// TODO: substituir INSTAGRAM_MOCK pelo hook useInstagramFeed quando a API estiver configurada
-// e descomentar a entrada do Instagram em PLATFORMS abaixo
-// const INSTAGRAM_MOCK = [
-//   { id: 'ig1', thumb: 'https://picsum.photos/seed/drone1/400/400', caption: 'Fim de tarde perfeito ✨', likes: '234', date: 'há 1 dia' },
-//   { id: 'ig2', thumb: 'https://picsum.photos/seed/drone2/400/400', caption: 'Vista do alto 🚁', likes: '412', date: 'há 3 dias' },
-//   { id: 'ig3', thumb: 'https://picsum.photos/seed/drone3/400/400', caption: 'Natureza em 4K', likes: '189', date: 'há 5 dias' },
-//   { id: 'ig4', thumb: 'https://picsum.photos/seed/drone4/400/400', caption: 'Cobertura especial', likes: '567', date: 'há 1 semana' },
-//   { id: 'ig5', thumb: 'https://picsum.photos/seed/drone5/400/400', caption: 'Litoral brasileiro', likes: '892', date: 'há 2 semanas' },
-//   { id: 'ig6', thumb: 'https://picsum.photos/seed/drone6/400/400', caption: 'Novos projetos 🎬', likes: '341', date: 'há 3 semanas' },
-// ]
 
 const TIKTOK_VIDEOS = [
   { id: '7574189922458864914', url: 'https://www.tiktok.com/@mrpdrone0/video/7574189922458864914' },
@@ -24,7 +10,7 @@ const TIKTOK_VIDEOS = [
   { id: '7453488519311297798', url: 'https://www.tiktok.com/@mrpdrone0/video/7453488519311297798' },
 ]
 
-// ─── Platform Config ─────────────────────────────────────────────────────────
+// ─── Platform Config ──────────────────────────────────────────────────────────
 
 const PLATFORMS = [
   {
@@ -34,15 +20,14 @@ const PLATFORMS = [
     color: '#FF0000',
     href: CLIENT.social.youtube.url,
   },
-  // TODO: descomentar quando a Instagram Graph API estiver configurada
-  // {
-  //   id: 'instagram',
-  //   label: 'Instagram',
-  //   icon: 'fa-brands fa-instagram',
-  //   color: '#E1306C',
-  //   gradient: 'linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4)',
-  //   href: CLIENT.social.instagram.url,
-  // },
+  {
+    id: 'instagram',
+    label: 'Instagram',
+    icon: 'fa-brands fa-instagram',
+    color: '#E1306C',
+    gradient: 'linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4)',
+    href: CLIENT.social.instagram.url,
+  },
   {
     id: 'tiktok',
     label: 'TikTok',
@@ -52,7 +37,7 @@ const PLATFORMS = [
   },
 ]
 
-// ─── Sub-components ──────────────────────────────────────────────────────────
+// ─── Sub-components ───────────────────────────────────────────────────────────
 
 function YouTubeSkeleton() {
   return (
@@ -75,6 +60,15 @@ function YouTubeError() {
     <div className={styles.feedError} role="alert">
       <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
       <p>Não foi possível carregar os vídeos. <a href={CLIENT.social.youtube.url} target="_blank" rel="noopener noreferrer">Ver canal no YouTube</a></p>
+    </div>
+  )
+}
+
+function InstagramError() {
+  return (
+    <div className={styles.feedError} role="alert">
+      <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+      <p>Não foi possível carregar os posts. <a href={CLIENT.social.instagram.url} target="_blank" rel="noopener noreferrer">Ver perfil no Instagram</a></p>
     </div>
   )
 }
@@ -115,45 +109,46 @@ function YouTubeCard({ item }) {
   )
 }
 
-// TODO: descomentar quando a Instagram Graph API estiver configurada
-// function InstagramCard({ item }) {
-//   return (
-//     <article className={styles.igCard}>
-//       <a
-//         href="https://instagram.com/mrpdrone"
-//         target="_blank"
-//         rel="noopener noreferrer"
-//         className={styles.igLink}
-//         aria-label={`Post: ${item.caption}`}
-//       >
-//         <img
-//           src={item.thumb}
-//           alt={item.caption}
-//           className={styles.igThumb}
-//           loading="lazy"
-//         />
-//         <div className={styles.igOverlay} aria-hidden="true">
-//           <p className={styles.igCaption}>{item.caption}</p>
-//           <div className={styles.igStats}>
-//             <span>
-//               <i className="fa-solid fa-heart"></i> {item.likes}
-//             </span>
-//             <span>{item.date}</span>
-//           </div>
-//         </div>
-//       </a>
-//     </article>
-//   )
-// }
+function InstagramCard({ item }) {
+  return (
+    <article className={styles.igCard}>
+      <a
+        href={item.permalink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles.igLink}
+        aria-label={`Ver post no Instagram: ${item.caption}`}
+      >
+        <img
+          src={item.media_url}
+          alt={item.caption}
+          className={styles.igThumb}
+          loading="lazy"
+        />
+        <div className={styles.igOverlay} aria-hidden="true">
+          <p className={styles.igCaption}>{item.caption}</p>
+          <div className={styles.igStats}>
+            <span>
+              <i className="fa-solid fa-heart"></i> {item.likes}
+            </span>
+            <span>{item.date}</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  )
+}
 
 function TikTokCard({ item }) {
   const [thumb, setThumb] = useState(null)
 
   useEffect(() => {
-    fetch(`https://www.tiktok.com/oembed?url=${encodeURIComponent(item.url)}`)
+    const controller = new AbortController()
+    fetch(`https://www.tiktok.com/oembed?url=${encodeURIComponent(item.url)}`, { signal: controller.signal })
       .then((r) => r.json())
       .then((data) => { if (data.thumbnail_url) setThumb(data.thumbnail_url) })
       .catch(() => {})
+    return () => controller.abort()
   }, [item.url])
 
   return (
@@ -186,6 +181,7 @@ export default function SocialFeed() {
   const [activePlatformIndex, setActivePlatformIndex] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
   const { videos: youtubeVideos, loading: ytLoading, error: ytError } = useYouTubeVideos()
+  const { posts: instagramPosts, loading: igLoading, error: igError } = useInstagramFeed()
 
   const activePlatform = PLATFORMS[activePlatformIndex]
 
@@ -285,9 +281,13 @@ export default function SocialFeed() {
                 : youtubeVideos.map((item) => <YouTubeCard key={item.id} item={item} />)
           )}
 
-          {/* TODO: descomentar quando a Instagram Graph API estiver configurada */}
-          {/* {activePlatform.id === 'instagram' &&
-            INSTAGRAM_MOCK.map((item) => <InstagramCard key={item.id} item={item} />)} */}
+          {activePlatform.id === 'instagram' && (
+            igLoading
+              ? <YouTubeSkeleton />
+              : igError
+                ? <InstagramError />
+                : instagramPosts.map((item) => <InstagramCard key={item.id} item={item} />)
+          )}
 
           {activePlatform.id === 'tiktok' &&
             TIKTOK_VIDEOS.map((item) => <TikTokCard key={item.id} item={item} />)}
