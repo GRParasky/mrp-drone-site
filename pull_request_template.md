@@ -1,26 +1,26 @@
-## 📝 Descrição
-<!-- Descreva brevemente o que este PR faz e por que é necessário. -->
+## 📝 Description
+<!-- Briefly describe what this PR does and why it is needed. -->
 
-Fixes # (insira o número da issue, se houver)
+Fixes # (insert issue number, if applicable)
 
-## 🚀 Tipo de alteração
-- [ ] 🐞 Correção de bug (bug fix)
-- [ ] ✨ Nova funcionalidade (new feature)
-- [ ] 🔨 Refatoração (refactor)
-- [ ] 📚 Documentação (docs)
-- [ ] 🧪 Testes
+## 🚀 Type of Change
+- [ ] 🐞 Bug fix
+- [ ] ✨ New feature
+- [ ] 🔨 Refactor
+- [ ] 📚 Documentation
+- [ ] 🧪 Tests
 
-## 🧪 Como foi testado?
-- [ ] Testes unitários realizados
-- [ ] Testado manualmente em ambiente de desenvolvimento
-- [ ] Nenhum impacto negativo detectado em funcionalidades existentes
+## 🧪 How Has This Been Tested?
+- [ ] Unit tests were added/executed
+- [ ] Tested manually in a development environment
+- [ ] No negative impact on existing features
 
-## 📸 Screenshots / Vídeos (se aplicável)
-<!-- Adicione evidências visuais das alterações aqui. -->
+## 📸 Screenshots / Videos (if applicable)
+<!-- Add visual evidence of the changes here. -->
 
 ## ✅ Checklist
-- [ ] Meu código segue os padrões de estilo deste projeto.
-- [ ] Fiz uma autorrevisão do meu próprio código.
-- [ ] Comentei partes complexas do código (se necessário).
-- [ ] Atualizei a documentação correspondente.
-- [ ] Meus arquivos não possuem conflitos com a branch de destino.
+- [ ] My code follows the project's style guidelines
+- [ ] I have performed a self-review of my code
+- [ ] I have commented on complex parts of the code (if necessary)
+- [ ] I have updated the relevant documentation
+- [ ] My changes have no conflicts with the target branch
