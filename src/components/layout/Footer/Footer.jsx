@@ -1,6 +1,7 @@
 import styles from './Footer.module.css'
 import { CLIENT } from '../../../config/client'
 import { useScrollToSection } from '../../../hooks/useScrollToSection'
+import Logo from '../../ui/Logo/Logo'
 
 const FOOTER_LINKS = {
   Serviços: [
@@ -46,19 +47,7 @@ export default function Footer() {
         <div className={styles.footerTop}>
           {/* Marca */}
           <div className={styles.brand}>
-            <a
-              href="#hero"
-              className={styles.logo}
-              onClick={(e) => handleNavClick(e, '#hero')}
-              aria-label="MRP Drone - Voltar ao topo"
-            >
-              <img
-                src="https://yt3.googleusercontent.com/Jhg43pm2arMNsXrMVs4y_bDdO5Fx1zbMjhIy6cQyVi0qGVV_z8AbQKpzfTokrX9_rWBlkfiQyA=s160-c-k-c0x00ffffff-no-rj"
-                alt="MRP Drone"
-                className={styles.logoImg}
-              />
-              <span>MRP<span className={styles.logoAccent}>Drone</span></span>
-            </a>
+            <Logo className={styles.logo} imgClassName={styles.logoImg} />
             <p className={styles.brandTagline}>
               Cinematografia aérea que eleva a sua história. Videografia profissional
               com drone para eventos, imóveis e projetos comerciais.

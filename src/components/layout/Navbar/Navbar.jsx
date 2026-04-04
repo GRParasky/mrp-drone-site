@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import styles from './Navbar.module.css'
+import Logo from '../../ui/Logo/Logo'
 import { useScrollToSection } from '../../../hooks/useScrollToSection'
 
 const NAV_LINKS = [
@@ -58,21 +59,7 @@ export default function Navbar() {
     >
       <div className={`container ${styles.navInner}`}>
         {/* Logo */}
-        <a
-          href="#hero"
-          className={styles.logo}
-          onClick={(e) => handleNavClick(e, '#hero')}
-          aria-label="MRP Drone - Voltar ao topo"
-        >
-          <img
-            src="https://yt3.googleusercontent.com/Jhg43pm2arMNsXrMVs4y_bDdO5Fx1zbMjhIy6cQyVi0qGVV_z8AbQKpzfTokrX9_rWBlkfiQyA=s160-c-k-c0x00ffffff-no-rj"
-            alt="MRP Drone"
-            className={styles.logoImg}
-          />
-          <span className={styles.logoText}>
-            MRP<span className={styles.logoAccent}>Drone</span>
-          </span>
-        </a>
+        <Logo className={styles.logo} imgClassName={styles.logoImg} onClick={() => setIsMenuOpen(false)} />
 
         {/* Navegação Desktop */}
         <nav className={styles.desktopNav} aria-label="Navegação principal">
