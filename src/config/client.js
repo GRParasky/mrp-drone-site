@@ -42,5 +42,20 @@ export const CLIENT = {
     'imagens aéreas praias SC',
     'drone eventos Santa Catarina',
     'MRP Drone',
+    // Cidades vizinhas
+    'drone Balneário Camboriú',
+    'drone Itajaí SC',
+    'drone Navegantes SC',
+    'drone Piçarras SC',
+    'drone Bombinhas SC',
+    'drone Itapema SC',
+    'drone Porto Belo SC',
+    'drone Barra Velha SC',
+    'drone Itajubá SC',
+    // Serviços específicos
+    'filmagem drone imóveis SC',
+    'drone casamento litoral catarinense',
+    'drone imóveis litoral catarinense',
+    'filmagem aérea eventos SC',
   ],
 }
