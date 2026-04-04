@@ -234,3 +234,15 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 480px) {
+  .socialIcon {
+    width: 56px;
+    height: 56px;
+    font-size: 1.25rem;
+  }
+
+  .socialIconLabel {
+    font-size: 0.55rem;
+  }
+}
