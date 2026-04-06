@@ -34,6 +34,8 @@ jobs:
         env:
           VITE_YOUTUBE_API_KEY: ${{ secrets.VITE_YOUTUBE_API_KEY }}
           VITE_WEB3FORMS_KEY: ${{ secrets.VITE_WEB3FORMS_KEY }}
+          VITE_INSTAGRAM_TOKEN: ${{ secrets.VITE_INSTAGRAM_TOKEN }}
+          VITE_INSTAGRAM_USER_ID: ${{ secrets.VITE_INSTAGRAM_USER_ID }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
