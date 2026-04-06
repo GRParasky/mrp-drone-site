@@ -197,7 +197,7 @@
 .igCard {
   border-radius: var(--border-radius-md);
   overflow: hidden;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 9 / 16;
   transition: transform var(--transition-fast);
 }
 
@@ -234,6 +234,7 @@
   justify-content: flex-end;
   padding: 0.875rem;
   gap: 0.3rem;
+  overflow: hidden;
 }
 
 .igCard:hover .igOverlay {
@@ -245,6 +246,10 @@
   font-weight: 600;
   color: #fff;
   line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .igStats {
