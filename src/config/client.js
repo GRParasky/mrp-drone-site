@@ -10,7 +10,7 @@ export const CLIENT = {
   areaServed: 'Litoral Catarinense',
 
   // ─── Contato ──────────────────────────────────────────────────────────────
-  email: 'marcielrodrigoparasky@gmail.com',
+  email: 'mmrpdrone@gmail.com',
   whatsapp: '554791531804',
   whatsappLabel: '+55 47 9 9153-1804',
 
